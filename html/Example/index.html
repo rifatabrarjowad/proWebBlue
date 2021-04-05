@@ -166,7 +166,37 @@
     </div>
   </div>
   <!-- countutor -->
+  {% comment %} video {% endcomment %}
+  <!-- Video Block -->
+<div id="youTubeVideoPlayerExample1" class="video-player bg-dark">
+  <!-- Cover Image -->
+  <img class="img-fluid video-player-preview" src="..." alt="Image">
 
+  <!-- Play Button -->
+  <a class="js-inline-video-player video-player-btn video-player-centered" href="javascript:;"
+     data-hs-video-player-options='{
+       "videoId": "t9R7xx0joOU",
+       "parentSelector": "#youTubeVideoPlayerExample1",
+       "targetSelector": "#youTubeVideoIframeExample1",
+       "isAutoplay": true,
+       "classMap": {
+         "toggle": "video-player-played"
+       }
+     }'>
+    <span class="video-player-icon">
+      <i class="fas fa-play"></i>
+    </span>
+  </a>
+  <!-- End Play Button -->
+
+  <!-- Video Iframe -->
+  <div class="embed-responsive embed-responsive-16by9">
+    <div id="youTubeVideoIframeExample1"></div>
+  </div>
+  <!-- End Video Iframe -->
+</div>
+<!-- End Video Block -->
+  {% comment %} video {% endcomment %}
   <!-- JS Global Compulsory -->
   <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
@@ -205,5 +235,14 @@
       });
     });
   </script>
+  <script src="../../assets/vendor/hs-video-player/dist/hs-video-player.min.js"></script>
+  <script>
+  $(document).on('ready', function () {
+    // initialization of video player
+    $('.js-inline-video-player').each(function () {
+      var videoPlayer = new HSVideoPlayer($(this)).init();
+    });
+  });
+</script>
 </body>
 </html>
